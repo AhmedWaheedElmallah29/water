@@ -155,19 +155,12 @@ app.put("/api/water/goal", async (req, res) => {
   }
 });
 
+// Get water history (last 30 days)
 app.get("/api/water/history", async (req, res) => {
   try {
-    const sevenDaysAgo = new Date();
-    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-    sevenDaysAgo.setHours(0, 0, 0, 0);
-
-    const history = await WaterEntry.find({
-      date: { $gte: sevenDaysAgo },
-    }).sort({ date: -1 });
-
+    const history = await WaterEntry.find().sort({ date: -1 }).limit(30);
     res.json(history);
   } catch (error) {
-    console.error("Error fetching history:", error);
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
