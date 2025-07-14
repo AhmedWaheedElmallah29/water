@@ -22,7 +22,10 @@ app.use((error, req, res, next) => {
 });
 app.use(
   cors({
-    origin: "https://water-front-2k86d9phd-ahmed-elmallahs-projects.vercel.app",
+    origin: [
+      "https://water-front-2k86d9phd-ahmed-elmallahs-projects.vercel.app",
+      "https://water-front-nflhajo0w-ahmed-elmallahs-projects.vercel.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
