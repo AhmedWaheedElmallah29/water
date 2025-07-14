@@ -20,7 +20,13 @@ app.use((error, req, res, next) => {
   }
   next();
 });
-
+app.use(
+  cors({
+    origin: "https://water-front-2k86d9phd-ahmed-elmallahs-projects.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 // MongoDB Connection
 mongoose
   .connect(process.env.MONGODB_URI, {

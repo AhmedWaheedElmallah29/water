@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import "./App.css";
 
-const API_BASE_URL = "https://water-back.vercel.app/";
+const API_BASE_URL = "https://water-back.vercel.app";
 
 const BOTTLE_SIZES = [
   { name: "Small Glass", size: 200, icon: "🥤" },
